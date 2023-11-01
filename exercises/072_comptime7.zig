@@ -35,10 +35,14 @@ pub fn main() void {
     // at compile time.
     //
     // Please fix this to loop once per "instruction":
-    ??? (i < instructions.len) : (???) {
+    // Each instruction is 2 characters followed by a space (3 total).
+    inline while (i < instructions.len) : (i += 3) {
 
         // This gets the digit from the "instruction". Can you
         // figure out why we subtract '0' from it?
+        // instructions[i + 1] gets the ASCII code for the digit.
+        // '0' is the ASCII code for the character '0'.
+        // Subtracting it gives the actual number instead of an ASCII code.
         comptime var digit = instructions[i + 1] - '0';
 
         // This 'switch' statement contains the actual work done
