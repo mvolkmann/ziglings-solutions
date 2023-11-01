@@ -20,7 +20,7 @@
 //
 // Zig provides all the necessary functions to change the bits inside
 // a variable. It is distinguished whether the bit change leads to an
-// overflow or not.The details are in the Zig documentation in section
+// overflow or not. The details are in the Zig documentation in section
 // 10.1 "Table of Operators".
 //
 // Here are some examples of how the bits of variables can be changed:
@@ -75,12 +75,11 @@ pub fn main() !void {
     var x: u8 = 1;
     var y: u8 = 0;
 
-    // Now we swap the values of the two variables by doing xor on them
+    // Now we swap the values of the two variables by doing xor on them.
+    // This MUST be done three times!
     x ^= y;
     y ^= x;
-
-    // What must be written here?
-    ???;
+    x ^= y;
 
     print("x = {d}; y = {d}\n", .{ x, y });
 }
