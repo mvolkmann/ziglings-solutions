@@ -30,7 +30,7 @@
 // Tests can be run via Zig build system or applied directly to
 // individual modules using "zig test xyz.zig".
 //
-// Both can be used script-driven to execute tests automatically, e.g.
+// Both can use script-driven to execute tests automatically, e.g.
 // after checking into a Git repository. Something we also make extensive
 // use of here at Ziglings.
 //
@@ -83,8 +83,7 @@ fn sub(a: f16, b: f16) f16 {
 // an error that you need
 // to correct.
 test "sub" {
-    try testing.expect(sub(10, 5) == 6);
-
+    try testing.expect(sub(10, 5) == 5);
     try testing.expect(sub(3, 1.5) == 1.5);
 }
 
@@ -108,5 +107,5 @@ test "divide" {
     // Now we test if the function returns an error
     // if we pass a zero as denominator.
     // But which error needs to be tested?
-    try testing.expectError(error.???, divide(15, 0));
+    try testing.expectError(error.DivisionByZero, divide(15, 0));
 }
